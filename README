@@ -29,3 +29,6 @@ command:
 
 output: list-plmct.x
 
+*.py files are the input for the Pymol v1.x (Educational version) 
+File --> Run ...
+
