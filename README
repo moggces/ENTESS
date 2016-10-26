@@ -1,0 +1,31 @@
+## Installation ##
+The Makefile is for 64-bit machines. Please change to -m32 for 32-bit machines.
+The source codes were successfully compiled on Windows Vista, Emerald (64-bit), and Ubuntu 10.10 (32-bit)
+
+## Descriptor types ##
+1. ENTess (J. Med. Chem. 2006, 49, 2713)
+2. PL-MCT (J. Chem. Inf. Model. 2011, 52, 16)
+3. count
+
+## Note ##
+Ions which are important for the ligand binding should be included in ligand mol2 file.
+Waters are not included in current implementation.
+
+## Option 1: one protein vs. one ligand pose ##
+command: 
+./entess -protein=1.pdb -ligand=1.mol2 -mode=plmct -path=$PWD
+
+output: 1-plmct.x ; 1.py [tetrahedra grouped by atom types] ; 1-tetran.py [tetrahedra grouped by descriptor types]
+
+## Option 2: one protein vs. multi-poses (from one ligand or many other ligands) ##
+command:
+./entess -protein=241.pdb -ligand=241_multi.mol2 -mode=plmct -path=/largefs/moggces/entess_new/
+
+output: 241_multi-plmct.x ; 
+
+## Option 3: n* ( one protein vs. one ligand pose ) ##
+command:
+./entess -list=list -mode=plmct -path=/largefs/moggces/entess_new/
+
+output: list-plmct.x
+
